@@ -891,11 +891,11 @@ async function handleCreatePostSubmit(e) {
 			body: JSON.stringify({ title, imageUrl, description }),
 		});
 
-		showNotification('Post created successfully!', 'success');
+		// Reset form and navigate home without showing notification
 		e.target.reset();
 		navigateToPage('home');
 	} catch (error) {
-		showNotification('Failed to create post. Please try again.', 'error');
+		console.error('Failed to create post:', error);
 	} finally {
 		setButtonLoading(submitBtn, false);
 	}
