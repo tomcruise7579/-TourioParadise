@@ -235,17 +235,16 @@ function setupPageNavigation() {
 	});
 
 	// Handle footer links
-	document.querySelectorAll('.footer__links a').forEach(link => {
-		link.addEventListener('click', function (e) {
-			e.preventDefault();
-			const page = this.getAttribute('data-page');
-			if (page) {
-				navigateToPage(page);
-			}
-		});
-	});
-
-	// Set initial page
+    document.querySelectorAll('.footer__links a').forEach(link => {
+        const page = link.getAttribute('data-page');
+        if (page) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                navigateToPage(page);
+            });
+        }
+        // Direct links (like privacy-policy.html) will work normally
+    });	// Set initial page
 	const hash = window.location.hash.slice(1);
 	const initialPage = hash && document.getElementById(`${hash}Page`) ? hash : 'home';
 	navigateToPage(initialPage);

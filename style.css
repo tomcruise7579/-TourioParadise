@@ -1783,9 +1783,25 @@ textarea.form-control {
 
 /* Ensure footer quick links are clickable */
 .footer__links a {
-    pointer-events: auto !important;
-    cursor: pointer;
-    z-index: 999;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.footer__links a:hover {
+    color: #3498db;
+}
+
+.footer__links .privacy-link {
+    color: #3498db;
+    font-weight: 500;
+}
+
+.footer__links .privacy-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
 }
 
 /* Loading Spinner */
