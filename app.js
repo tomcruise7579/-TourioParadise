@@ -891,11 +891,16 @@ async function handleCreatePostSubmit(e) {
 			body: JSON.stringify({ title, imageUrl, description }),
 		});
 
-		// Reset form and navigate home without showing notification
-		e.target.reset();
-		navigateToPage('home');
+		// Clear all input fields
+		document.getElementById('postTitle').value = '';
+		document.getElementById('postImageUrl').value = '';
+		document.getElementById('postDescription').value = '';
+		
+		// Show success notification
+		showNotification('Create post successful!', 'success');
 	} catch (error) {
 		console.error('Failed to create post:', error);
+		showNotification('Failed to create post. Please try again.', 'error');
 	} finally {
 		setButtonLoading(submitBtn, false);
 	}
