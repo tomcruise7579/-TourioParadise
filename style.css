@@ -1717,6 +1717,8 @@ textarea.form-control {
   background: var(--color-slate-900);
   color: var(--color-gray-200);
   padding: 60px 0 var(--space-24);
+  position: relative;
+  z-index: 9999;
 }
 
 .footer__content {
@@ -1777,6 +1779,13 @@ textarea.form-control {
   padding-top: var(--space-24);
   border-top: 1px solid var(--color-gray-400);
   color: var(--color-gray-300);
+}
+
+/* Ensure footer quick links are clickable */
+.footer__links a {
+    pointer-events: auto !important;
+    cursor: pointer;
+    z-index: 999;
 }
 
 /* Loading Spinner */
@@ -2070,4 +2079,10 @@ textarea.form-control {
 #create-postPage .form-control {
   background: rgba(255,255,255,0.95);
   border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Ensure footer is above any potential overlays */
+.footer {
+    position: relative;
+    z-index: 9999;
 }

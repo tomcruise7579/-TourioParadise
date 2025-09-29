@@ -74,6 +74,13 @@
     margin: 2rem 0;
 }
 
+/* Ensure footer links are clickable */
+.footer__links a {
+    pointer-events: auto !important;
+    cursor: pointer;
+    z-index: 10;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .privacy-page {
