@@ -1,0 +1,113 @@
+/* Privacy Policy Page Styles */
+.privacy-page {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    color: #333;
+}
+
+.privacy-page .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.privacy-page h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.privacy-page .page-subtitle {
+    color: #666;
+    font-size: 1rem;
+}
+
+.privacy-content {
+    line-height: 1.8;
+}
+
+.privacy-content h2 {
+    color: #2c3e50;
+    font-size: 1.75rem;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.privacy-content p {
+    margin: 1rem 0;
+    color: #444;
+}
+
+.privacy-content ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.privacy-content li {
+    margin: 0.5rem 0;
+    color: #444;
+}
+
+.privacy-content a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.privacy-content a:hover {
+    border-bottom-color: #3498db;
+}
+
+.privacy-content strong {
+    color: #2c3e50;
+}
+
+/* Contact Section Styles */
+.privacy-content .contact-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .privacy-page {
+        margin: 1rem auto;
+    }
+
+    .privacy-page h1 {
+        font-size: 2rem;
+    }
+
+    .privacy-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .privacy-content {
+        font-size: 0.95rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .privacy-page {
+        max-width: 100%;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .header,
+    .footer {
+        display: none;
+    }
+
+    .privacy-content a {
+        text-decoration: underline;
+        color: #000;
+    }
+}
