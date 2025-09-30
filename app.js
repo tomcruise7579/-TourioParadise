@@ -891,13 +891,11 @@ async function handleCreatePostSubmit(e) {
 			body: JSON.stringify({ title, imageUrl, description }),
 		});
 
-		// Clear all input fields
-		document.getElementById('postTitle').value = '';
-		document.getElementById('postImageUrl').value = '';
-		document.getElementById('postDescription').value = '';
-		
 		// Show success notification
 		showNotification('Create post successful!', 'success');
+		
+		// Refresh the page
+		window.location.reload();
 	} catch (error) {
 		console.error('Failed to create post:', error);
 		showNotification('post created successfully.', 'done');
