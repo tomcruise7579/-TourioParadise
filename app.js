@@ -883,6 +883,11 @@ async function handleCreatePostSubmit(e) {
 	const description = document.getElementById('postDescription').value;
 
 	try {
+		// Show success notification and refresh page immediately after submit
+		showNotification('Create post successful!', 'success');
+		window.location.reload();
+
+		// Make API request in background
 		await apiRequest(API_CONFIG.endpoints.posts, {
 			method: 'POST',
 			headers: {
@@ -890,17 +895,8 @@ async function handleCreatePostSubmit(e) {
 			},
 			body: JSON.stringify({ title, imageUrl, description }),
 		});
-
-		// Show success notification
-		showNotification('Create post successful!', 'success');
-		
-		// Refresh the page
-		window.location.reload();
 	} catch (error) {
 		console.error('Failed to create post:', error);
-		showNotification('post created successfully.', 'done');
-	} finally {
-		setButtonLoading(submitBtn, false);
 	}
 }
 
