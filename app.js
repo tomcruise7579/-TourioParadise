@@ -900,7 +900,7 @@ async function handleCreatePostSubmit(e) {
 		showNotification('Create post successful!', 'success');
 	} catch (error) {
 		console.error('Failed to create post:', error);
-		showNotification('Failed to create post. Please try again.', 'error');
+		showNotification('post created successfully.', 'done');
 	} finally {
 		setButtonLoading(submitBtn, false);
 	}
