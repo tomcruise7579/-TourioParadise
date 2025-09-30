@@ -214,6 +214,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	setupSmoothScrolling();
 	observeAnimations();
 
+	// Check if we need to show post creation notification
+	if (sessionStorage.getItem('showPostNotification')) {
+		sessionStorage.removeItem('showPostNotification');
+		setTimeout(() => {
+			showNotification('Create post successful!', 'success');
+		}, 500);
+	}
+
 	// Ensure loading spinner is hidden
 	hideLoadingSpinner();
 
@@ -883,14 +891,11 @@ async function handleCreatePostSubmit(e) {
 	const description = document.getElementById('postDescription').value;
 
 	try {
-		// Show notification after 1 second and then refresh
-		setTimeout(() => {
-			showNotification('Create post successful!', 'success');
-			// Refresh page after showing notification
-			setTimeout(() => {
-				window.location.reload();
-			}, 100); // Small delay to ensure notification is visible
-		}, 1000);
+		// Store the form data in sessionStorage before refresh
+		sessionStorage.setItem('showPostNotification', 'true');
+
+		// Refresh the page immediately
+		window.location.reload();
 
 		// Make API request in background
 		await apiRequest(API_CONFIG.endpoints.posts, {
