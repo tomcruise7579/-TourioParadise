@@ -1,0 +1,152 @@
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .text-center-mobile {
+    text-align: center !important;
+  }
+
+  .full-width-mobile {
+    width: 100% !important;
+  }
+
+  .m-0-mobile {
+    margin: 0 !important;
+  }
+
+  .p-0-mobile {
+    padding: 0 !important;
+  }
+}
+
+/* Touch-friendly Improvements */
+@media (hover: none) {
+  /* Enhance tap targets */
+  .nav__link,
+  .btn,
+  .footer__links a {
+    padding: 12px 20px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Remove hover effects that might interfere with touch */
+  .destination-card:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Add active state feedback */
+  .btn:active,
+  .nav__link:active,
+  .destination-card:active {
+    opacity: 0.7;
+  }
+}
+
+/* Improved Form Elements for Touch */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+  }
+
+  .form-control {
+    padding: 12px 16px;
+  }
+
+  select.form-control {
+    padding-right: 40px; /* Ensure space for dropdown arrow */
+  }
+}
+
+/* Smooth Scrolling for iOS */
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Better spacing for stacked elements on mobile */
+@media (max-width: 768px) {
+  .section-title {
+    margin-bottom: var(--space-24);
+  }
+
+  .page-header {
+    padding: 60px 0 40px;
+  }
+
+  .categories,
+  .featured-destinations,
+  .newsletter,
+  .about-content,
+  .contact-content {
+    padding: 40px 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--space-12);
+  }
+
+  p {
+    margin-bottom: var(--space-12);
+  }
+}
+
+/* Loading States and Feedback */
+@media (max-width: 768px) {
+  .loading-spinner {
+    padding: var(--space-20);
+  }
+
+  .notification {
+    margin: var(--space-12);
+    padding: var(--space-12) var(--space-16);
+    border-radius: var(--radius-base);
+    max-width: calc(100% - var(--space-24));
+  }
+}
+
+/* Accessibility Improvements */
+@media (max-width: 768px) {
+  /* Increase contrast for better readability */
+  .text-secondary {
+    color: rgba(var(--color-text-rgb), 0.8) !important;
+  }
+
+  /* Ensure sufficient touch target spacing */
+  .nav__list > li,
+  .footer__links > li {
+    margin-bottom: var(--space-8);
+  }
+
+  /* Focus states */
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Enhanced Dark Mode Support */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .modal__content,
+  .notification,
+  .loading-spinner {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+  }
+}
