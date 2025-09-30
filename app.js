@@ -883,9 +883,14 @@ async function handleCreatePostSubmit(e) {
 	const description = document.getElementById('postDescription').value;
 
 	try {
-		// Show success notification and refresh page immediately after submit
-		showNotification('Create post successful!', 'success');
-		window.location.reload();
+		// Show notification after 1 second and then refresh
+		setTimeout(() => {
+			showNotification('Create post successful!', 'success');
+			// Refresh page after showing notification
+			setTimeout(() => {
+				window.location.reload();
+			}, 100); // Small delay to ensure notification is visible
+		}, 1000);
 
 		// Make API request in background
 		await apiRequest(API_CONFIG.endpoints.posts, {
