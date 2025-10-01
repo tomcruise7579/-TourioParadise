@@ -147,6 +147,6 @@
   .notification,
   .loading-spinner {
     background: var(--color-surface);
-    border-color: var(--color-border);
+    border-color: var(--color-border); 
   }
 }
