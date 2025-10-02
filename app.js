@@ -127,7 +127,7 @@ const SAMPLE_DESTINATIONS = [
 		bestTime: "April to June, September to October",
 		attractions: ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral", "Champs-Élysées"],
 		tips: "Many museums are free on the first Sunday of each month. Learn basic French phrases for better interactions.",
-		image: "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=800"
+		image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800"
 	}
 	,
 	{
@@ -142,7 +142,7 @@ const SAMPLE_DESTINATIONS = [
 		bestTime: "April to June, September to November",
 		attractions: ["Statue of Liberty", "Central Park", "Metropolitan Museum of Art", "Empire State Building"],
 		tips: "Use the subway to get around quickly; book Broadway tickets in advance for popular shows.",
-		image: "https://images.unsplash.com/photo-1549921296-3f3c6f4f1d9d?w=800"
+		image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800"
 	},
 	{
 		id: "london",
@@ -156,7 +156,7 @@ const SAMPLE_DESTINATIONS = [
 		bestTime: "April to June, September to October",
 		attractions: ["British Museum", "Tower of London", "Buckingham Palace", "West End"],
 		tips: "Get an Oyster card for public transport and consider free museum days for budget visits.",
-		image: "https://images.unsplash.com/photo-1505765053448-0c1f3d7c9b7b?w=800"
+		image: "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800"
 	},
 	{
 		id: "bali",
@@ -170,7 +170,7 @@ const SAMPLE_DESTINATIONS = [
 		bestTime: "April to October",
 		attractions: ["Ubud", "Seminyak", "Tanah Lot", "Uluwatu Temple"],
 		tips: "Respect local customs at temples; rent a scooter only if experienced.",
-		image: "https://images.unsplash.com/photo-1508669232496-137d9d6a5f2c?w=800"
+		image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"
 	},
 	{
 		id: "sydney",
