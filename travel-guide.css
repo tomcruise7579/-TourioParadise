@@ -43,7 +43,7 @@
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    color: #1E90FF; /* DodgerBlue for guide card headings */
+    color: #000305; /* DodgerBlue for guide card headings */
 }
 
 .guide-link-card p {
@@ -56,7 +56,7 @@
     padding: 2rem;
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    color: #ADD8E6; /* light blue text for improved visibility */
+    color: #3a7487; /* light blue text for improved visibility */
 }
 
 .guide-content h2 {
