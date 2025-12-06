@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-responsive.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+    <a class="skip-link" href="#homePage">Skip to content</a>
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -35,7 +35,7 @@
                     </ul>
                 </nav>
 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -55,8 +55,8 @@
                     <p class="hero__subtitle">Explore the world's most beautiful places and create unforgettable memories</p>
 
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Search destinations..." class="search-input">
-                        <button class="search-btn" id="searchBtn">🔍</button>
+                        <input type="text" id="searchInput" placeholder="Search destinations..." class="search-input" aria-label="Search destinations">
+                        <button type="button" class="search-btn" id="searchBtn" aria-label="Search">🔍</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     <!-- Featured destinations populated by JavaScript -->
                 </div>
                 <div class="text-center">
-                    <button class="btn btn--primary btn--lg" onclick="navigateToPage('destinations')">
+                    <button type="button" class="btn btn--primary btn--lg" onclick="navigateToPage('destinations')">
                         View All Destinations
                     </button>
                 </div>
@@ -374,8 +374,8 @@
             <div class="container">
                 <div class="auth-container">
                     <div class="auth-tabs">
-                        <button class="auth-tab active" data-tab="login">Login</button>
-                        <button class="auth-tab" data-tab="register">Register</button>
+                        <button type="button" class="auth-tab active" data-tab="login">Login</button>
+                        <button type="button" class="auth-tab" data-tab="register">Register</button>
                     </div>
 
                     <div id="loginTab" class="auth-form-container active">
@@ -445,10 +445,10 @@
                     </div>
                     <p class="footer__desc">Discover the world's most amazing destinations with us.</p>
                     <div class="social-links">
-                        <a href="#" target="_blank">Facebook</a>
-                        <a href="#" target="_blank">Instagram</a>
-                        <a href="#" target="_blank">Twitter</a>
-                        <a href="#" target="_blank">YouTube</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
                     </div>
                 </div>
                 <div class="footer__section">
@@ -485,8 +485,8 @@
     <!-- Destination Detail Modal -->
     <div id="destinationModal" class="modal hidden">
         <div class="modal__overlay" id="modalOverlay"></div>
-        <div class="modal__content">
-            <button class="modal__close" id="modalClose">&times;</button>
+            <div class="modal__content">
+            <button type="button" class="modal__close" id="modalClose">&times;</button>
             <div class="modal__body" id="modalBody">
                 <!-- Modal content populated by JavaScript -->
             </div>
