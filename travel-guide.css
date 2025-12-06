@@ -147,6 +147,58 @@
     font-weight: 700;
 }
 
+/* Enhanced readability for better visual hierarchy */
+.post-body strong {
+    color: #0e83d1;
+    font-weight: 600;
+}
+
+.post-body em {
+    font-style: italic;
+    color: #666;
+}
+
+/* Visual accent boxes for tips and important info */
+.post-body p:has(strong:first-child) {
+    background: #f0f8ff;
+    padding: 1rem;
+    border-left: 4px solid #0e83d1;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+/* Improve blockquote-like styling */
+.post-body blockquote {
+    border-left: 4px solid #0e83d1;
+    padding-left: 1.5rem;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* Highlight code snippets or callouts */
+.post-body code {
+    background: #f5f5f5;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+    font-size: 0.95em;
+}
+
+/* Improve spacing between sections */
+.post-body h3 + ul,
+.post-body h3 + ol,
+.post-body h3 + p {
+    margin-top: 1rem;
+}
+
+/* Better spacing for lists with visual separation */
+.post-body li + li {
+    margin-top: 0.5rem;
+}
+
 .post-footer {
     padding: 1.5rem 2rem;
     background: #f9f9f9;
