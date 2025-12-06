@@ -198,6 +198,25 @@ let currentFilters = {
 };
 let currentPage = 'home';
 
+// AdSense configuration: only load ads on pages with publisher content
+const ADSENSE_CLIENT = 'ca-pub-9936656082362086';
+let adsLoaderInjected = false;
+
+function loadAdSenseIfNeeded() {
+	// Only inject once and only on allowed pages
+	if (adsLoaderInjected) return;
+	if (!['home', 'destinations'].includes(currentPage)) return;
+
+	const script = document.createElement('script');
+	script.async = true;
+	script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+	script.crossOrigin = 'anonymous';
+	document.head.appendChild(script);
+
+	// Mark as injected so we don't inject multiple times
+	adsLoaderInjected = true;
+}
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function () {
 	console.log('Initializing Tourism Paradise multi-page app...');
@@ -224,6 +243,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Ensure loading spinner is hidden
 	hideLoadingSpinner();
+
+	// Try to load ads on initial page if allowed
+	loadAdSenseIfNeeded();
 
 	console.log('Application initialized successfully!');
 });
@@ -289,6 +311,9 @@ function navigateToPage(pageName) {
 		// Page-specific initialization
 		initializePage(pageName);
 		updatePageTitle(pageName);
+
+		// Load ads if this page should show publisher content
+		loadAdSenseIfNeeded();
 	}
 }
 
