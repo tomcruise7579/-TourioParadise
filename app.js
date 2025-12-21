@@ -283,33 +283,38 @@ function setupPageNavigation() {
 function navigateToPage(pageName) {
 	console.log('Navigating to page:', pageName);
 
+	// Find target page element first; if it doesn't exist, don't change current visibility
+	const targetPage = document.getElementById(`${pageName}Page`);
+	if (!targetPage) {
+		console.warn(`navigateToPage: page "${pageName}" not found — leaving current page visible.`);
+		return;
+	}
+
 	// Hide all pages
 	document.querySelectorAll('.page').forEach(page => {
 		page.classList.remove('active');
 	});
 
 	// Show selected page
-	const targetPage = document.getElementById(`${pageName}Page`);
-	if (targetPage) {
-		targetPage.classList.add('active');
-		currentPage = pageName;
+	targetPage.classList.add('active');
+	currentPage = pageName;
 
-		// Update navigation active state
-		document.querySelectorAll('.nav__link').forEach(link => {
-			link.classList.remove('active');
-			if (link.getAttribute('data-page') === pageName) {
-				link.classList.add('active');
-			}
-		});
+	// Update navigation active state
+	document.querySelectorAll('.nav__link').forEach(link => {
+		link.classList.remove('active');
+		if (link.getAttribute('data-page') === pageName) {
+			link.classList.add('active');
+		}
+	});
 
-		// Update URL hash
-		window.history.replaceState(null, null, `#${pageName}`);
+	// Update URL hash
+	window.history.replaceState(null, null, `#${pageName}`);
 
-		// Scroll to top
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+	// Scroll to top
+	window.scrollTo({ top: 0, behavior: 'smooth' });
 
-		// Page-specific initialization
-		initializePage(pageName);
+	// Page-specific initialization
+	initializePage(pageName);
 		updatePageTitle(pageName);
 
 		// Load ads if this page should show publisher content
