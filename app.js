@@ -315,11 +315,10 @@ function navigateToPage(pageName) {
 
 	// Page-specific initialization
 	initializePage(pageName);
-		updatePageTitle(pageName);
+	updatePageTitle(pageName);
 
-		// Load ads if this page should show publisher content
-		loadAdSenseIfNeeded();
-	}
+	// Load ads if this page should show publisher content
+	loadAdSenseIfNeeded();
 }
 
 function initializePage(pageName) {
