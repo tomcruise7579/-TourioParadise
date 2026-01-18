@@ -188,11 +188,268 @@ const SAMPLE_DESTINATIONS = [
 	}
 ];
 
+// Visa Guide Data
+const VISA_GUIDE_DATA = [
+	{
+		id: "france",
+		country: "France",
+		region: "Europe",
+		icon: "🇫🇷",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa (Schengen)", "Business Visa", "Work Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Travel health insurance", "Proof of accommodation", "Bank statements showing funds", "Travel itinerary"],
+		processingTime: "10-15 business days",
+		cost: "€80",
+		duration: "90 days (within 180 days)",
+		bestTime: "April-June, September-October",
+		tips: "Book accommodations in advance. The Schengen visa allows travel in 27 European countries."
+	},
+	{
+		id: "japan",
+		country: "Japan",
+		region: "Asia",
+		icon: "🇯🇵",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa", "Business Visa", "Work Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Completed application form", "Passport-sized photo", "Bank statements", "Proof of employment"],
+		processingTime: "4-7 business days",
+		cost: "¥3,000 (~$20 USD)",
+		duration: "15 or 30 days",
+		bestTime: "March-May, October-November",
+		tips: "Japan is very tourist-friendly. Learn basic Japanese phrases for better experience."
+	},
+	{
+		id: "usa",
+		country: "United States",
+		region: "Americas",
+		icon: "🇺🇸",
+		visaRequired: true,
+		visaTypes: ["B-1 Business Visa", "B-2 Tourist Visa", "H-1B Work Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Completed DS-160 form", "Visa fee receipt", "Medical examination", "Criminal record check"],
+		processingTime: "Several weeks",
+		cost: "$160 USD",
+		duration: "10 years (entry validity varies)",
+		bestTime: "June, September",
+		tips: "Visa interview required. Be prepared with travel plans and financial documentation."
+	},
+	{
+		id: "india",
+		country: "India",
+		region: "Asia",
+		icon: "🇮🇳",
+		visaRequired: true,
+		visaTypes: ["Tourist eVisa", "Business Visa", "Work Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Recent passport photo", "Completed application", "Bank statements", "Hotel booking confirmation"],
+		processingTime: "3-4 business days (eVisa)",
+		cost: "$25-100 USD",
+		duration: "30-90 days",
+		bestTime: "October-March",
+		tips: "eVisa is convenient and can be obtained online. Avoid monsoon season."
+	},
+	{
+		id: "thailand",
+		country: "Thailand",
+		region: "Asia",
+		icon: "🇹🇭",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa", "Transit Visa", "Education Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Completed TM.6 form", "Passport photo", "Bank statements", "No criminal record"],
+		processingTime: "3-5 business days",
+		cost: "500-1,200 THB",
+		duration: "30-60 days",
+		bestTime: "November-February",
+		tips: "Visa on arrival available at Bangkok airport. Be respectful to the Thai Royal Family."
+	},
+	{
+		id: "australia",
+		country: "Australia",
+		region: "Oceania",
+		icon: "🇦🇺",
+		visaRequired: true,
+		visaTypes: ["Visitor Visa", "eVisitor", "Work Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Completed application", "Medical examination", "Character reference", "Travel insurance recommended"],
+		processingTime: "1-3 weeks",
+		cost: "AUD $190 (~$130 USD)",
+		duration: "3 months - 3 years",
+		bestTime: "September-May",
+		tips: "Wildlife is diverse and unique. Don't miss the Great Barrier Reef."
+	},
+	{
+		id: "uk",
+		country: "United Kingdom",
+		region: "Europe",
+		icon: "🇬🇧",
+		visaRequired: true,
+		visaTypes: ["Standard Visitor Visa", "Business Visitor", "Work Visa"],
+		requirements: ["Valid passport", "Visa application fee receipt", "Proof of accommodation", "Financial statements", "Employment letter"],
+		processingTime: "2-4 weeks",
+		cost: "£100-719",
+		duration: "6 months",
+		bestTime: "May-September",
+		tips: "Post-Brexit, most travelers from non-EU countries need visas. Book museums in advance."
+	},
+	{
+		id: "canada",
+		country: "Canada",
+		region: "Americas",
+		icon: "🇨🇦",
+		visaRequired: true,
+		visaTypes: ["Temporary Resident Visa", "eTA", "Work Permit"],
+		requirements: ["Valid passport (6+ months validity)", "Completed application", "Police clearance", "Medical exam", "Proof of funds"],
+		processingTime: "4-6 weeks",
+		cost: "CAD $100 (~$75 USD)",
+		duration: "Up to 6 months",
+		bestTime: "June-September",
+		tips: "eTA required for most visitors. Niagara Falls and Rocky Mountains are must-see."
+	},
+	{
+		id: "schengen",
+		country: "Schengen Area (26 countries)",
+		region: "Europe",
+		icon: "🇪🇺",
+		visaRequired: true,
+		visaTypes: ["Schengen Visa", "Short-stay Visa"],
+		requirements: ["Valid passport (3+ months beyond stay)", "Travel insurance", "Proof of accommodation", "Bank statements", "Return flight ticket"],
+		processingTime: "15 days standard",
+		cost: "€80",
+		duration: "90 days in 180 days",
+		bestTime: "April-June, September-October",
+		tips: "One visa for 26 countries. Apply at the embassy of your main destination."
+	},
+	{
+		id: "mexico",
+		country: "Mexico",
+		region: "Americas",
+		icon: "🇲🇽",
+		visaRequired: false,
+		visaTypes: ["Tourist Card (FMM)", "Temporary Resident Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Return flight ticket", "Proof of funds"],
+		processingTime: "Issued at border",
+		cost: "Free (Tourist Card)",
+		duration: "Up to 180 days",
+		bestTime: "November-April",
+		tips: "Many nationalities can enter without a visa. Beaches and ancient sites are spectacular."
+	},
+	{
+		id: "turkey",
+		country: "Turkey",
+		region: "Europe/Asia",
+		icon: "🇹🇷",
+		visaRequired: true,
+		visaTypes: ["eVisa", "Visa on Arrival", "Business Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Email address", "Credit card for payment"],
+		processingTime: "Online instant",
+		cost: "$20 USD",
+		duration: "30 days",
+		bestTime: "April-May, September-October",
+		tips: "eVisa is very convenient. Istanbul bridges Europe and Asia."
+	},
+	{
+		id: "dubai-uae",
+		country: "Dubai / United Arab Emirates",
+		region: "Middle East",
+		icon: "🇦🇪",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa", "Visa on Arrival", "Work Visa"],
+		requirements: ["Valid passport (6+ months validity)", "Hotel booking", "Return flight ticket", "Bank statements"],
+		processingTime: "Same-day to 5 days",
+		cost: "AED 100-150 (~$30 USD)",
+		duration: "30 days",
+		bestTime: "October-April",
+		tips: "World's tallest building Burj Khalifa is here. Luxury shopping and desert safaris."
+	},
+	{
+		id: "singapore",
+		country: "Singapore",
+		region: "Asia",
+		icon: "🇸🇬",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa", "Business Visa", "Work Pass"],
+		requirements: ["Valid passport (6+ months validity)", "Completed form", "Passport photo", "Bank statements", "Return ticket"],
+		processingTime: "5-10 business days",
+		cost: "SGD 30-50 (~$22-37 USD)",
+		duration: "30 days",
+		bestTime: "December-February",
+		tips: "Clean, safe, and cosmopolitan city. Marina Bay Sands is iconic."
+	},
+	{
+		id: "brazil",
+		country: "Brazil",
+		region: "Americas",
+		icon: "🇧🇷",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa", "Business Visa", "Work Visa"],
+		requirements: ["Valid passport", "Completed application", "Two photos", "Bank statements", "Hotel reservation"],
+		processingTime: "5-10 business days",
+		cost: "USD 160",
+		duration: "90 days",
+		bestTime: "April-May, September-October",
+		tips: "Carnival season is famous. Amazon rainforest and Iguazu Falls are breathtaking."
+	},
+	{
+		id: "new-zealand",
+		country: "New Zealand",
+		region: "Oceania",
+		icon: "🇳🇿",
+		visaRequired: true,
+		visaTypes: ["Visitor Visa", "eTA (for some nationals)", "Work Visa"],
+		requirements: ["Valid passport (3+ months beyond stay)", "Medical examination", "Police clearance", "Proof of funds", "Accommodation details"],
+		processingTime: "2-4 weeks",
+		cost: "NZD $165-232",
+		duration: "3-12 months",
+		bestTime: "December-February",
+		tips: "Adventure capital with stunning landscapes. Hobbiton tours are popular."
+	},
+	{
+		id: "germany",
+		country: "Germany",
+		region: "Europe",
+		icon: "🇩🇪",
+		visaRequired: true,
+		visaTypes: ["Schengen Visa", "National Visa", "Work Visa"],
+		requirements: ["Valid passport", "Travel insurance", "Proof of accommodation", "Financial documents", "Schengen application form"],
+		processingTime: "15 days",
+		cost: "€80",
+		duration: "90 days (Schengen)",
+		bestTime: "May-September",
+		tips: "Part of Schengen Area. Oktoberfest and Christmas markets are famous."
+	},
+	{
+		id: "spain",
+		country: "Spain",
+		region: "Europe",
+		icon: "🇪🇸",
+		visaRequired: true,
+		visaTypes: ["Schengen Visa", "National Visa", "Work Visa"],
+		requirements: ["Valid passport", "Travel insurance", "Proof of funds", "Accommodation booking", "Schengen form"],
+		processingTime: "15 days",
+		cost: "€80",
+		duration: "90 days (Schengen)",
+		bestTime: "April-June, September-October",
+		tips: "Beautiful beaches and vibrant cities. Sagrada Familia in Barcelona is iconic."
+	},
+	{
+		id: "south-korea",
+		country: "South Korea",
+		region: "Asia",
+		icon: "🇰🇷",
+		visaRequired: true,
+		visaTypes: ["Tourist Visa", "Business Visa", "Work Visa"],
+		requirements: ["Valid passport", "Completed application", "Two photos", "Bank statements", "Employment certificate"],
+		processingTime: "5-10 business days",
+		cost: "50,000 KRW (~$40 USD)",
+		duration: "60-90 days",
+		bestTime: "April-May, September-October",
+		tips: "Tech hub with amazing food culture. K-pop and temples attract visitors."
+	}
+];
+
 // Global variables
 let allDestinations = [];
 let filteredDestinations = [];
 let currentFilters = {
 	category: '',
+
 	region: '',
 	search: ''
 };
@@ -329,6 +586,9 @@ function initializePage(pageName) {
 		case 'destinations':
 			renderDestinations();
 			break;
+		case 'visa-guide':
+			initializeVisaGuide();
+			break;
 		case 'travel-guide':
 			// Travel guide is static for now; placeholder for future dynamic content
 			break;
@@ -341,6 +601,7 @@ function updatePageTitle(pageName) {
 		'destinations': 'Destinations - Tourism Paradise',
 		'about': 'About Us - Tourism Paradise',
 		'contact': 'Contact Us - Tourism Paradise',
+		'visa-guide': 'Visa Guide - Tourism Paradise',
 		'create-post': 'Create Post - Tourism Paradise'
 	};
 
@@ -1060,3 +1321,157 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+// Visa Guide Functions
+function initializeVisaGuide() {
+	renderVisaGuides();
+	setupVisaSearch();
+}
+
+function renderVisaGuides() {
+	const visaGrid = document.getElementById('visaGrid');
+	if (!visaGrid) return;
+
+	visaGrid.innerHTML = VISA_GUIDE_DATA.map(visa => `
+		<div class="visa-card">
+			<div class="visa-card__header">
+				<span class="visa-card__icon">${visa.icon}</span>
+				<h3 class="visa-card__title">${visa.country}</h3>
+				<span class="visa-card__region">${visa.region}</span>
+			</div>
+			<div class="visa-card__content">
+				<div class="visa-card__field">
+					<strong>Visa Required:</strong>
+					<span class="visa-required-badge ${visa.visaRequired ? 'required' : 'not-required'}">
+						${visa.visaRequired ? '✓ Yes' : '✗ Not Required'}
+					</span>
+				</div>
+				<div class="visa-card__field">
+					<strong>Processing Time:</strong>
+					<p>${visa.processingTime}</p>
+				</div>
+				<div class="visa-card__field">
+					<strong>Visa Types:</strong>
+					<ul class="visa-types-list">
+						${visa.visaTypes.map(type => `<li>${type}</li>`).join('')}
+					</ul>
+				</div>
+				<div class="visa-card__field">
+					<strong>Cost:</strong>
+					<p>${visa.cost}</p>
+				</div>
+				<div class="visa-card__field">
+					<strong>Duration:</strong>
+					<p>${visa.duration}</p>
+				</div>
+				<div class="visa-card__field">
+					<strong>Requirements:</strong>
+					<ul class="requirements-list">
+						${visa.requirements.map(req => `<li>✓ ${req}</li>`).join('')}
+					</ul>
+				</div>
+				<div class="visa-card__field">
+					<strong>Best Time to Visit:</strong>
+					<p>${visa.bestTime}</p>
+				</div>
+				<div class="visa-card__field">
+					<strong>💡 Tip:</strong>
+					<p>${visa.tips}</p>
+				</div>
+			</div>
+		</div>
+	`).join('');
+}
+
+function setupVisaSearch() {
+	const searchInput = document.getElementById('visaCountrySearch');
+	const searchBtn = document.getElementById('visaSearchBtn');
+
+	if (!searchInput) return;
+
+	const performSearch = () => {
+		const query = searchInput.value.toLowerCase().trim();
+		const visaGrid = document.getElementById('visaGrid');
+
+		if (!query) {
+			renderVisaGuides();
+			return;
+		}
+
+		const filtered = VISA_GUIDE_DATA.filter(visa =>
+			visa.country.toLowerCase().includes(query) ||
+			visa.region.toLowerCase().includes(query) ||
+			visa.visaTypes.some(type => type.toLowerCase().includes(query))
+		);
+
+		if (filtered.length === 0) {
+			visaGrid.innerHTML = `
+				<div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+					<p style="font-size: 18px; color: var(--color-text-secondary);">
+						No countries found matching "${query}". Try searching by country name or region.
+					</p>
+				</div>
+			`;
+			return;
+		}
+
+		visaGrid.innerHTML = filtered.map(visa => `
+			<div class="visa-card">
+				<div class="visa-card__header">
+					<span class="visa-card__icon">${visa.icon}</span>
+					<h3 class="visa-card__title">${visa.country}</h3>
+					<span class="visa-card__region">${visa.region}</span>
+				</div>
+				<div class="visa-card__content">
+					<div class="visa-card__field">
+						<strong>Visa Required:</strong>
+						<span class="visa-required-badge ${visa.visaRequired ? 'required' : 'not-required'}">
+							${visa.visaRequired ? '✓ Yes' : '✗ Not Required'}
+						</span>
+					</div>
+					<div class="visa-card__field">
+						<strong>Processing Time:</strong>
+						<p>${visa.processingTime}</p>
+					</div>
+					<div class="visa-card__field">
+						<strong>Visa Types:</strong>
+						<ul class="visa-types-list">
+							${visa.visaTypes.map(type => `<li>${type}</li>`).join('')}
+						</ul>
+					</div>
+					<div class="visa-card__field">
+						<strong>Cost:</strong>
+						<p>${visa.cost}</p>
+					</div>
+					<div class="visa-card__field">
+						<strong>Duration:</strong>
+						<p>${visa.duration}</p>
+					</div>
+					<div class="visa-card__field">
+						<strong>Requirements:</strong>
+						<ul class="requirements-list">
+							${visa.requirements.map(req => `<li>✓ ${req}</li>`).join('')}
+						</ul>
+					</div>
+					<div class="visa-card__field">
+						<strong>Best Time to Visit:</strong>
+						<p>${visa.bestTime}</p>
+					</div>
+					<div class="visa-card__field">
+						<strong>💡 Tip:</strong>
+						<p>${visa.tips}</p>
+					</div>
+				</div>
+			</div>
+		`).join('');
+	};
+
+	searchInput.addEventListener('keypress', (e) => {
+		if (e.key === 'Enter') {
+			performSearch();
+		}
+	});
+
+	if (searchBtn) {
+		searchBtn.addEventListener('click', performSearch);
+	}
+}
