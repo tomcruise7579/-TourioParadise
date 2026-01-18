@@ -863,6 +863,17 @@ function setupModalEvents() {
 	if (modalClose) {
 		modalClose.addEventListener('click', closeModal);
 	}
+
+	// Visa Modal Events
+	const visaModalOverlay = document.getElementById('visaModalOverlay');
+	const visaModalClose = document.getElementById('visaModalClose');
+
+	if (visaModalOverlay) {
+		visaModalOverlay.addEventListener('click', closeVisaModal);
+	}
+	if (visaModalClose) {
+		visaModalClose.addEventListener('click', closeVisaModal);
+	}
 }
 
 // Categories Setup
@@ -1282,9 +1293,117 @@ window.addEventListener('scroll', function () {
 
 // Travel Guide Content
 
+// Visa Modal Functions
+function openVisaModal(visaId) {
+	const visa = VISA_GUIDE_DATA.find(v => v.id === visaId);
+	if (!visa) return;
+
+	const modal = document.getElementById('visaDetailModal');
+	const modalBody = document.getElementById('visaModalBody');
+
+	if (!modalBody) return;
+
+	// Generate background color based on flag emoji
+	const flagColors = {
+		'france': '#002395',
+		'japan': '#BC002D',
+		'usa': '#3C3B6B',
+		'india': '#FF9933',
+		'thailand': '#CE1126',
+		'australia': '#00843D',
+		'uk': '#012169',
+		'canada': '#FF0000',
+		'schengen': '#002395',
+		'mexico': '#CE1126',
+		'turkey': '#E30A17',
+		'dubai-uae': '#00732F',
+		'singapore': '#E31937',
+		'brazil': '#009B3A',
+		'new-zealand': '#002B41',
+		'germany': '#000000',
+		'spain': '#FFC400',
+		'south-korea': '#003478'
+	};
+
+	const bgColor = flagColors[visaId] || '#4682B4';
+
+	modalBody.innerHTML = `
+		<div class="visa-detail-header" style="background: linear-gradient(135deg, ${bgColor} 0%, rgba(70, 130, 180, 0.8) 100%);">
+			<div class="visa-detail-flag">${visa.icon}</div>
+			<h2 class="visa-detail-title">${visa.country}</h2>
+			<p class="visa-detail-region">${visa.region}</p>
+		</div>
+
+		<div class="visa-detail-body">
+			<div class="visa-detail-grid">
+				<div class="visa-detail-card">
+					<h3>Visa Status</h3>
+					<span class="visa-required-badge ${visa.visaRequired ? 'required' : 'not-required'}">
+						${visa.visaRequired ? '✓ Visa Required' : '✗ Not Required'}
+					</span>
+				</div>
+
+				<div class="visa-detail-card">
+					<h3>Processing Time</h3>
+					<p>${visa.processingTime}</p>
+				</div>
+
+				<div class="visa-detail-card">
+					<h3>Cost</h3>
+					<p class="cost-highlight">${visa.cost}</p>
+				</div>
+
+				<div class="visa-detail-card">
+					<h3>Duration</h3>
+					<p>${visa.duration}</p>
+				</div>
+			</div>
+
+			<div class="visa-detail-section">
+				<h3>📋 Visa Types</h3>
+				<ul class="visa-detail-list">
+					${visa.visaTypes.map(type => `<li class="visa-type-item">${type}</li>`).join('')}
+				</ul>
+			</div>
+
+			<div class="visa-detail-section">
+				<h3>📄 Requirements</h3>
+				<ul class="visa-detail-list">
+					${visa.requirements.map(req => `<li class="requirement-item">✓ ${req}</li>`).join('')}
+				</ul>
+			</div>
+
+			<div class="visa-detail-section">
+				<h3>🗓️ Best Time to Visit</h3>
+				<p class="best-time-text">${visa.bestTime}</p>
+			</div>
+
+			<div class="visa-detail-section tips-section">
+				<h3>💡 Pro Tip</h3>
+				<p class="tip-text">${visa.tips}</p>
+			</div>
+		</div>
+	`;
+
+	if (modal) {
+		modal.classList.remove('hidden');
+		document.body.style.overflow = 'hidden';
+	}
+}
+
+function closeVisaModal() {
+	const modal = document.getElementById('visaDetailModal');
+	if (modal) {
+		modal.classList.add('hidden');
+		document.body.style.overflow = 'auto';
+	}
+}
+
 // Global functions for HTML access
 window.navigateToPage = navigateToPage;
 window.openDestinationModal = openDestinationModal;
+window.openVisaModal = openVisaModal;
+window.closeVisaModal = closeVisaModal;
 window.clearAllFilters = clearAllFilters;
 
 // CSS Animation Styles
@@ -1332,7 +1451,7 @@ function renderVisaGuides() {
 	if (!visaGrid) return;
 
 	visaGrid.innerHTML = VISA_GUIDE_DATA.map(visa => `
-		<div class="visa-card">
+		<div class="visa-card" onclick="openVisaModal('${visa.id}')" style="cursor: pointer;">
 			<div class="visa-card__header">
 				<span class="visa-card__icon">${visa.icon}</span>
 				<h3 class="visa-card__title">${visa.country}</h3>
